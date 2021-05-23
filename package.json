@@ -30,12 +30,17 @@
         "ganache:start": "ganache-cli -p 8545",
         "watch": "onchange 'src/**/*.js' -- npm run build"
     },
-    "pre-commit": [
-        "lint",
-        "lint:fix"
-    ],
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
     "lint-staged": {
-      "*.js": ["npm run lint:fix", "git add"]
+        "*.js": [
+            "npm run lint",
+            "npm run lint:fix",
+            "git add"
+        ]
     },
     "dependencies": {
         "@openzeppelin/contracts": "^3.4.1",
@@ -80,6 +85,7 @@
         "ganache-cli": "^6.12.2",
         "gitbook-cli": "^2.3.2",
         "http-server": "^0.12.3",
+        "husky": "^6.0.0",
         "jsdoc": "^3.6.6",
         "jsdoc-babel": "^0.5.0",
         "jsdoc-md": "^8.0.0",
@@ -87,7 +93,6 @@
         "lint-staged": "^11.0.0",
         "mocha-multi-reporters": "^1.5.1",
         "onchange": "^2.4.0",
-        "pre-commit": "^1.2.2",
         "should": "^7.1.0",
         "supertest": "^1.0.0",
         "truffle": "5.1.7"
