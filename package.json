@@ -34,6 +34,9 @@
         "lint",
         "lint:fix"
     ],
+    "lint-staged": {
+      "*.js": ["npm run lint:fix", "git add"]
+    },
     "dependencies": {
         "@openzeppelin/contracts": "^3.4.1",
         "abi-decoder": "^1.2.0",
@@ -76,13 +79,14 @@
         "eslint-plugin-prettier": "3.1.0",
         "ganache-cli": "^6.12.2",
         "gitbook-cli": "^2.3.2",
-        "onchange": "^2.4.0",
         "http-server": "^0.12.3",
         "jsdoc": "^3.6.6",
         "jsdoc-babel": "^0.5.0",
         "jsdoc-md": "^8.0.0",
         "jsdoc-to-markdown": "^6.0.1",
+        "lint-staged": "^11.0.0",
         "mocha-multi-reporters": "^1.5.1",
+        "onchange": "^2.4.0",
         "pre-commit": "^1.2.2",
         "should": "^7.1.0",
         "supertest": "^1.0.0",
